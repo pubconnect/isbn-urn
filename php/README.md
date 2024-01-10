@@ -4,10 +4,17 @@ An experiment/draft to add readable deeplinks and fragments using the urn format
 The provided basic libraries and documentation allows to test, experience, adjust and extend its usability within various (development) environments and applications.
 
 Please see the extended [README](https://github.com/pubconnect/isbn-urn/) and description of the base project.
+
+## Installing
+
+`composer require pubconnect/isbn-urn`
+
+## Usage 
  
- 
-## CREATE :: a URN string
+### CREATE :: a URN string
 ```php
+   use Pubconnect\IsbnUrn\IsbnUrn; 
+   
    $urnParser = new IsbnUrn();
    $urnParser->setNamespaceIdentifier('isbn');
    $urnParser->setNamespace('9795363916662');
@@ -17,9 +24,10 @@ Please see the extended [README](https://github.com/pubconnect/isbn-urn/) and de
    echo $urnParser->getUrn();
 ```
 
-## UPDATE :: a existing URN string
+### UPDATE :: a existing URN string
 ```php
-
+   use Pubconnect\IsbnUrn\IsbnUrn; 
+   
    $urnString = "urn:isbn:9795363916662";
    $urnParser = new IsbnUrn($urnString);
    $urnParser->setTocItem('4.3.2');
@@ -29,8 +37,10 @@ Please see the extended [README](https://github.com/pubconnect/isbn-urn/) and de
    echo PHP_EOL.PHP_EOL;
 ```  
 
-## PARSE :: URN strings
+### PARSE :: URN strings
 ```php
+   use Pubconnect\IsbnUrn\IsbnUrn; 
+
    $urnStrings[] = "urn:isbn:9795363916662";
    $urnStrings[] = "urn:isbn:9795363916662?segmentnum=5";
    $urnStrings[] = "urn:isbn:9795363916662?tocitem=3.3.3";
