@@ -84,10 +84,10 @@ E.g. `urn:isbn:9795363916662?tocitem=3.3.3#offset(10,150)` indicating that this 
 ##### Basis + Snippet
 
 For readability (fragment identifier component), it is advisable to place a piece of text behind the `offset()` e.g.  
-`urn:isbn:9795363916662?tocitem=3.3.3#offset(10,34)the ugly fox jumped into the bushes`
+`urn:isbn:9795363916662?tocitem=3.3.3#offset(10,34)the+ugly+fox+jumped+into+the+bushes`
 
 To indicate that the fragment is longer than shown in the urn, `...` will be placed behind the text e.g.  
-`urn:isbn:9795363916662?tocitem=3.3.3#offset(10,34)the ugly fox jumped into d...`
+`urn:isbn:9795363916662?tocitem=3.3.3#offset(10,34)the+ugly+fox+jumped+into+d...`
 
 > :memo: **Note:**  
 > The use of '+' instead of '%20' to indicate a space might not be striclty valid.  
