@@ -1,0 +1,21 @@
+stages:
+  - sync
+
+sync_changes:
+  stage: sync
+  script:
+    - echo "Checking for changes in the PHP subfolder..."
+    - |
+      if git diff --name-only $CI_COMMIT_BEFORE_SHA $CI_COMMIT_SHA | grep -q "php/"; then
+        echo "Syncing changes to isbn-urn-php repository..."
+        git clone https://oauth2:$DEPLOY_TOKEN@gitlab.com/pubconnect/isbn-urn-php.git temp_repo
+        cp -R php/* temp_repo/
+        cd temp_repo
+        git add .
+        git commit -m "Update from main repo"
+        git push origin main
+      else
+        echo "No changes in PHP subfolder. Skipping sync."
+      fi
+  only:
+    - main  # Only when on the main branch

@@ -13,6 +13,16 @@ _E.g._ `urn:isbn:9795363916662` `[urn]:[nid]:[nss]`
 
 According to the [isbn namespace spec](https://www.iana.org/assignments/urn-formal/isbn), the namespace for isbn allows different writing styles of the ISBN number. Both ISBN-10 and ISBN-13 are [permitted](https://www.iana.org/assignments/urn-formal/isbn) either with or without `'-'`. That means `urn:isbn:9795363916662` and `urn:isbn:979-5-363916-66-2` are both valid.
 
+
+## Installing/Using 
+
+#### PHP
+See [README.md](./php/README.md) in `./php`
+
+#### NodeJS
+(TODO)
+
+
 ## Proposal Brief
 
 Below is our proposal/implementation of how URN formatting will be based on our interpretation using (?=)[q-component] and (#)[fragment] within the spec.
@@ -36,6 +46,7 @@ _Chapter number (if no numerical toc present)_
 
 **_Reference to readable fragment_**  
 `urn:isbn:9795363916662?tocitem=3.3.3#offset(10,34)the+ugly+fox+jumped+into+the+bushes...`
+
 
 ### Structure
 

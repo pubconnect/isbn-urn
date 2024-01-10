@@ -1,0 +1,26 @@
+name: Sync PHP Subfolder to isbn-urn-php repository
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'php/**'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Sync changes
+      run: |
+        echo "Syncing changes to isbn-urn-php repository..."
+        git clone https://x-access-token:${{ secrets.DEPLOY_TOKEN }}@github.com/pubconnect/isbn-urn-php.git temp_repo
+        cp -R php/* temp_repo/
+        cd temp_repo
+        git config user.name "Your Name"
+        git config user.email "youremail@example.com"
+        git add .
+        git commit -m "Update from main repo"
+        git push
