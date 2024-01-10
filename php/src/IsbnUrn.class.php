@@ -1,4 +1,5 @@
 <?php
+namespace Pubconnect\IsbnUrn;
 
 /**
  * Class IsbnUrn

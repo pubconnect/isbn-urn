@@ -1,0 +1,27 @@
+{
+    "name": "pubconnect/isbn-urn",
+    "description": "An experiment to add deeplinks/fragments to urn:isbn",
+    "type": "libary",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Pubconnect\\IsbnUrn\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Daan",
+            "email": "d.gosman@freshbits.nl"
+        }
+    ],
+    "extra": {
+        "laravel": {
+          "providers": [
+            "PubConnect\\IsbnUrn"
+          ]
+       }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    }
+}

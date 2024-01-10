@@ -1,0 +1,45 @@
+This class provides a uniform interface for URNs (both to parse and create).
+See also (https://github.com/pubconnect/isbn-urn/blob/main/README.md)[README] of the base project.
+ * 
+ * 
+ * @example CREATE :: a URN string
+ *   $urnParser = new IsbnUrn();
+ *   $urnParser->setNamespaceIdentifier('isbn');
+ *   $urnParser->setNamespace('9795363916662');
+ *   $urnParser->setTocItem('3.3.3');
+ *   $urnParser->setOffset(10, 34);
+ *   $urnParser->setTextFragment('de lelijke vos sprong in de bosjes');
+ *   echo $urnParser->getUrn();
+ * 
+ * @example UPDATE :: a existing URN string
+ *   $urnString = "urn:isbn:9795363916662";
+ *   $urnParser = new IsbnUrn($urnString);
+ *   $urnParser->setTocItem('4.3.2');
+ *   $urnParser->setOffset(0, 340);
+ *   $urnParser->setTextFragment('de lelijke vos sprong in de bosjes');
+ *   echo $urnParser->getUrn();
+ *   echo PHP_EOL.PHP_EOL;
+ *  
+ * 
+ * @example PARSE :: URN strings
+ *   $urnStrings[] = "urn:isbn:9795363916662";
+ *   $urnStrings[] = "urn:isbn:9795363916662?segmentnum=5";
+ *   $urnStrings[] = "urn:isbn:9795363916662?tocitem=3.3.3";
+ *   $urnStrings[] = "urn:isbn:9795363916662?tocitem=3.3.3#offset(150)";
+ *   $urnStrings[] = "urn:isbn:9795363916662?tocitem=3.3.3#offset(10,34)";
+ *   $urnStrings[] = "urn:isbn:9795363916662?tocitem=3.3.3#offset(10,34)de+lelijke+vos+sprong+in+de+bosjes";
+ *    
+ *   foreach($urnStrings as $urnString){
+ *     $urnParser = new IsbnUrn($urnString);
+ *     echo "URN: " . $urnParser->getUrn() . PHP_EOL;
+ *     echo "Namespace Identifier: " . $urnParser->getNamespaceIdentifier() . PHP_EOL;
+ *     echo "Namespace: " . $urnParser->getNamespace() . PHP_EOL;
+ *     echo "TOC Item: " . $urnParser->getTocItem() . PHP_EOL;
+ *     echo "Segment Number: " . $urnParser->getSegmentNum() . PHP_EOL;
+ *     echo "Offset: ";
+ *     echo var_export($urnParser->getOffset(), true).PHP_EOL;
+ *     echo "Text Fragment: " . $urnParser->getTextFragment() . PHP_EOL;
+ *     echo PHP_EOL.PHP_EOL;
+ *   }  
+ *     
+ */
