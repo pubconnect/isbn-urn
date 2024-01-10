@@ -3,7 +3,7 @@ An experiment/draft to add readable deeplinks and fragments using the urn format
 
 The provided basic libraries and documentation allows to test, experience, adjust and extend its usability within various (development) environments and applications.
 
-Please see the extended [README](https://github.com/pubconnect/isbn-urn/) and description of the base project.
+Please and post issues and pull requests in the [base project](https://github.com/pubconnect/isbn-urn/). Also see the extended [README](https://github.com/pubconnect/isbn-urn/) located there
 
 ## Installing
 

@@ -1,0 +1,40 @@
+name: Sync Tags to isbn-urn-php
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Sync changes base repository
+      run: |
+        echo "Syncing changes to isbn-urn-php repository..."
+        git clone https://x-access-token:${{ secrets.DEPLOY_TOKEN }}@github.com/pubconnect/isbn-urn-php.git temp_repo
+        cp -R php/* temp_repo/
+        cd temp_repo
+        git config user.name "GitHub - CI/CD Actions"
+        git config user.email "daan@freshbits.nl"
+        git add .
+        
+        # Check if there are any changes to commit
+        if ! git diff --cached --exit-code; then
+          git commit -m "Update from main repo"
+          git push
+        else
+          echo "No changes to commit."
+        fi
+
+    - name: Clone isbn-urn-php repository
+      run: |
+        git clone https://x-access-token:${{ secrets.DEPLOY_TOKEN }}@github.com/pubconnect/isbn-urn-php.git
+        cd isbn-urn-php
+        git tag ${{ github.ref_name }}
+        git push origin ${{ github.ref_name }}
+    env:
+        DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
