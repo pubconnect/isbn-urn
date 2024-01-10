@@ -1,5 +1,5 @@
 This class provides a uniform interface for URNs (both to parse and create).
-See also (https://github.com/pubconnect/isbn-urn/blob/main/README.md)[README] of the base project.
+See also (https://github.com/pubconnect/isbn-urn/blob/main/README.md) of the base project.
  * 
  * 
  * @example CREATE :: a URN string
