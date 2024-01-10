@@ -2,6 +2,9 @@
     "name": "pubconnect/isbn-urn",
     "description": "An experiment to add deeplinks/fragments to urn:isbn",
     "type": "libary",
+    "require": {
+        "php": ">=8.2"
+    },
     "license": "MIT",
     "autoload": {
         "psr-4": {
