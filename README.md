@@ -4,7 +4,7 @@ An experiment/draft to add readable deeplinks and fragments using the urn format
 The provided basic libraries and documentation allows to test, experience, adjust and extend its usability within various (development) environments and applications.
 
 We attempt to maintain a readable format in snippets and internal references that can be translated to both online and offline books based on URN (Uniform Resource Name) formatting ([RFC 8141](https://en.wikipedia.org/wiki/Uniform_Resource_Name)).
-The namespace `isbn` is [registered](https://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml) at [INA](https://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml) in its basic form. There currenlty is no standard contained within the definition to reference to segments/fragments within the publication.
+The namespace `isbn` is [registered](https://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml) at [IANA](https://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml) in its basic form. There currenlty is no standard contained within the definition to reference to segments/fragments within the publication.
 
 ![URN_syntax_diagram_-_namestring.png](https://upload.wikimedia.org/wikipedia/commons/c/ce/URN_syntax_diagram_-_namestring.png)*Image source: Wikipedia (CC BY-SA 4.0) URN syntax diagram - namestring.png*
 
@@ -54,7 +54,7 @@ The formatting of the urn according to [RFC 8141](https://en.wikipedia.org/wiki/
 
 #### Structure of Query (q-component[?=])
 :warning: _Sadly, it cannot be stated unequivocally that chapters have unique names, thus a query based on chapter name is not feasible._  
-_E.g. `urn:isbn:9795363916662?chapter=bushes+and+foxes` is unfortunately not (well) possible._
+_E.g. `urn:isbn:9795363916662?chapter=bushes+and+foxes` would not be reliable._
 
 ##### Chapter based on TOC (numerical)
 
