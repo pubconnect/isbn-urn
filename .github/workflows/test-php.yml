@@ -3,8 +3,12 @@ name: PHP Composer / PHPUnit tests
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'php/**'
   pull_request:
     branches: [ main ]
+    paths:
+      - 'php/**'
 
 jobs:
   build:
