@@ -54,4 +54,55 @@ class ParseUrnTest extends TestCase
         $this->assertEquals(['start' => '10', 'length' => '34'], $urnParser->getOffset());
         $this->assertEquals('de lelijke vos sprong in de bosjes', $urnParser->getTextFragment());
     }
+
+    public function testParseUrns(){  
+          $urnStrings[] = "urn:isbn:9795363916662";
+          $urnStrings[] = "urn:isbn:9795363916662?segmentnum=5";
+          $urnStrings[] = "urn:isbn:9795363916662?tocitem=3.3.3";
+          $urnStrings[] = "urn:isbn:9795363916662?tocitem=3.3.3#offset(150)";
+          $urnStrings[] = "urn:isbn:9795363916662?tocitem=3.3.3#offset(10,34)";
+          $urnStrings[] = "urn:isbn:9795363916662?tocitem=3.3.3#offset(10,34)de+lelijke+vos+sprong+in+de+bosjes";
+           
+          foreach($urnStrings as $urnString){
+            $urnParser = new IsbnUrn($urnString);
+
+             // Implement tests for each URN string
+            $this->assertEquals($urnString, $urnParser->getUrn());
+            $this->assertEquals('isbn', $urnParser->getNamespaceIdentifier());
+            $this->assertEquals('9795363916662', $urnParser->getNamespace());
+
+            if (strpos($urnString, '?') !== false) {
+                $this->assertStringContainsString("?", $urnParser->getUrn());
+            }  
+            
+            if (strpos($urnString, 'tocitem') !== false) {
+                $this->assertStringContainsString("tocitem", $urnParser->getUrn());
+                // Check if toc item is set and valid
+                $this->assertEquals('3.3.3', $urnParser->getTocItem());
+            }
+
+            if (strpos($urnString, 'segmentnum') !== false) {
+                $this->assertStringContainsString("segmentnum", $urnParser->getUrn());
+                // Check if segment number is set and valid
+                $this->assertEquals('5', $urnParser->getSegmentNum());
+            }
+
+            if (strpos($urnString, 'offset') !== false) {
+                $this->assertStringContainsString("offset", $urnParser->getUrn());
+                // Check if offset is set and valid
+                if (strpos($urnString, '10,34') !== false) {
+                    $this->assertEquals(['start' => '10', 'length' => '34'], $urnParser->getOffset());
+                }
+                if (strpos($urnString, '150') !== false) {
+                    $this->assertEquals(['start' => '150'], $urnParser->getOffset());
+                }
+            }
+
+            if (strpos($urnString, 'de+lelijke+vos+sprong+in+de+bosjes') !== false) {
+                $this->assertStringContainsString("de+lelijke+vos+sprong+in+de+bosjes", $urnParser->getUrn());
+                // Check if text fragment is set and valid
+                $this->assertEquals('de lelijke vos sprong in de bosjes', $urnParser->getTextFragment());
+            }
+        }
+    }
 }
