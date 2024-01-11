@@ -20,7 +20,7 @@ jobs:
         cp -R php/* temp_repo/
         cd temp_repo
         git config user.name "GitHub - CI/CD Actions"
-        git config user.email "daan@freshbits.nl"
+        git config user.email "${{ secrets.GIT_EMAIL_USER }}"
         git add .
         git commit -m "Update from main repo"
         git push
