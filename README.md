@@ -42,13 +42,13 @@ _Chapter number (if no numerical toc present)_
 `urn:isbn:9795363916662?tocitem=3.3.3#offset(10)`  
 `urn:isbn:9795363916662?tocitem=3.3.3#offset(10,34)`
 
-**_Suggested: Reference to readable fragment_**  
+**_Suggested: Extended Reference to text section (for readability)_**  
 `urn:isbn:9795363916662?tocitem=3.3.3#offset(10,34)the+ugly+fox+jumped+into+the+bushes...`
 
 ---
 ### Structure
 
-The formatting of the urn according to [RFC 8141](https://en.wikipedia.org/wiki/Uniform_Resource_Name) allows for **?query** and **#fragment** parameters to be included. At the time of writing, we have not found any existing formatting/query for urn, specifically urn:isbn, that enables referencing specific sections or parts within an isbn resource.
+The formatting of the urn according to [RFC 8141](https://en.wikipedia.org/wiki/Uniform_Resource_Name) allows for **?query** and **#fragment** parameters to be included. At the time of writing, we have not found any existing formatting/query for urn:isbn specifically, that would enable referencing specific sections or parts within an isbn resource.
 
 ***
 
