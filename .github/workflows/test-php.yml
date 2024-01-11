@@ -2,9 +2,9 @@ name: PHP Composer / PHPUnit tests
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -16,9 +16,12 @@ jobs:
 
     - name: Validate composer.json and composer.lock
       run: composer validate
+      working-directory: ./php
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
+      working-directory: ./php
 
     - name: Run tests
-      run: ./vendor/bin/phpunit
+      run: ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests
+      working-directory: ./php
